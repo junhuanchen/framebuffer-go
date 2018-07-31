@@ -66,9 +66,13 @@ func (fb *FrameBuffer) At(x, y int) color.Color {
 func (fb *FrameBuffer) Set(x, y int, c color.Color) {
 	pixelStart := fb.getPixelStart(x, y)
 	r, g, b, _ := c.RGBA()
-	fb.buf[pixelStart+red] = uint8(r)
-	fb.buf[pixelStart+green] = uint8(g)
-	fb.buf[pixelStart+blue] = uint8(b)
+	fb.WritePixel(uint8(r), uint8(g), uint8(b))
+}
+
+func (fb *FrameBuffer) WritePixel(x, y int, r, g, b uint8) {
+	fb.buf[pixelStart+red] = r
+	fb.buf[pixelStart+green] = g
+	fb.buf[pixelStart+blue] = b
 }
 
 // Sync changes to video memory - nothing will actually appear on the
