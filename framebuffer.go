@@ -64,7 +64,6 @@ func (fb *FrameBuffer) At(x, y int) color.Color {
 }
 
 func (fb *FrameBuffer) Set(x, y int, c color.Color) {
-	pixelStart := fb.getPixelStart(x, y)
 	r, g, b, _ := c.RGBA()
 	fb.WritePixel(x, y, uint8(r), uint8(g), uint8(b))
 }
