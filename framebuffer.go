@@ -70,6 +70,7 @@ func (fb *FrameBuffer) Set(x, y int, c color.Color) {
 }
 
 func (fb *FrameBuffer) WritePixel(x, y int, r, g, b uint8) {
+	pixelStart := fb.getPixelStart(x, y)
 	fb.buf[pixelStart+red] = r
 	fb.buf[pixelStart+green] = g
 	fb.buf[pixelStart+blue] = b
