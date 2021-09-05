@@ -22,10 +22,10 @@ var (
 )
 
 const (
-	red   = 2
+	red   = 0
 	green = 1
-	blue  = 0
-	x     = 3 // not sure what this does, but there's a slot for it.
+	blue  = 2
+	x     = 4 // not sure what this does, but there's a slot for it.
 
 	colorBytes = 4
 )
@@ -59,7 +59,7 @@ func (fb *FrameBuffer) At(x, y int) color.Color {
 		R: fb.buf[pixelStart+red],
 		G: fb.buf[pixelStart+green],
 		B: fb.buf[pixelStart+blue],
-		A: 0,
+		A: 255,
 	}
 }
 
